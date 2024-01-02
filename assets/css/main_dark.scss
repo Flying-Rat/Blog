@@ -1,0 +1,19 @@
+---
+search: false
+---
+
+@charset "utf-8";
+
+$fr-primary: #fa5565;
+$fr-primary-dark: $fr-primary;
+$primary-color: $fr-primary-dark !default;
+$link-color: $fr-primary-dark !default;
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin_dark | default: 'dark' }}";
+
+// Hack to fix TOC header in current implementation of dark mode
+.toc .nav__title {
+    background: $fr-primary !important;
+}
+
+@import "minimal-mistakes";

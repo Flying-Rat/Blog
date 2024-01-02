@@ -1,0 +1,12 @@
+---
+search: false
+---
+
+@charset "utf-8";
+
+$fr-primary: #fa5565;
+$primary-color: $fr-primary !default;
+$link-color: $fr-primary !default;
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";

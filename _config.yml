@@ -1,0 +1,100 @@
+title: Flying Rat Tech Blog
+email: hello@flying-rat.online
+description: >-
+  A technical blog from the Flying Rat development team, sharing our findings, ideas, and solutions to problems that we have encountered.
+twitter_username: flyingratstudio
+github_username: Flying-Rat
+minimal_mistakes_skin: contrast
+minimal_mistakes_skin_dark: "dark"
+search: true
+url: https://tech.flying-rat.online
+logo: "/assets/images/logo.png"
+
+# Build settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+repository: Flying-Rat/Blog
+
+# Outputting
+permalink: /post/:title:output_ext
+paginate: 10
+paginate_path: /page:num/
+timezone: Europe/Prague # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+locale: "en-US"
+excerpt_separator: "<!--more-->"
+breadcrumbs: true
+words_per_minute: 150
+
+include:
+  - _pages
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+author:
+  name: "Flying Rat"
+  bio: "Tech blog to share our findings and ideas during our game development journey at Flying Rat Studio 🎮"
+  location: "Prague, Czechia"
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.flying-rat.online"
+    - label: "X"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/flyingratstudio"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/Flying-Rat"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram-square"
+      url: "https://www.instagram.com/flyingrat.studio"
+
+footer:
+  links:
+    - label: "X"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/flyingratstudio"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/Flying-Rat"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/flyingrat.studio"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: false
+      share: false
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+category_archive:
+  type: liquid
+  path: /categories/
+
+tag_archive:
+  type: liquid
+  path: /tags/
