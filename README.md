@@ -17,7 +17,10 @@ As this blog is based on Jekyll - various parts of it can be modified and change
 Following tools needs to be installed on your development machine:
 
 - Ruby
-  - Tested with Ruby 3.3.\* on Windows WSL installed using [asdf](https://asdf-vm.com/)
+  - Tested with Ruby 3.2.\* on Windows WSL installed using [asdf](https://asdf-vm.com/)
+    
+> [!WARNING]
+> Do not use Ruby 3.3.\* as it's not supported by Github Pages yet
 
 ## Start Local Instance
 
