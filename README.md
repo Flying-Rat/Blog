@@ -6,6 +6,8 @@ This is tech blog of Flying Rat development team built on amazing [Jekyll](https
 
 Just create a new `.md` file and place it to `/_posts/` folder. Then fill required meta information like `date` or `title` and - of course - your amazing blog post text! :sunglasses:
 
+After merging PR to `main` branch - Github Pages will automatically build and deploy new version of the blog :rocket:
+
 # Development
 
 As this blog is based on Jekyll - various parts of it can be modified and changed, feel free to make changes and submit PR!
