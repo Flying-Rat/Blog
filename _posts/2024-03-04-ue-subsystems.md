@@ -647,7 +647,7 @@ if (IsValid(PerfSubsystem))
 
 Example of output:
 
-```log
+```cpp
 Actor VolumetricCloud_1 has been alive for 15.01 seconds.
 Actor SkyAtmosphere_1 has been alive for 15.01 seconds.
 Actor BP_Door_C_UAID_E89C25424BAA1CDC01_1831171407 has been alive for 15.01 seconds.
