@@ -50,57 +50,58 @@ In summary, Unreal Engine subsystems enhance code organization, maintainability,
 Let’s explore the lifecycle of different subsystem types and provide concise examples for each:
 
 1. `UGameInstanceSubsystem`:
+    - Associated with the game instance.
+    - Initialization:
+        - Called when the game instance is created.
+        - Set up global state or resources.
+    - Deinitialization:
+        - Called when the game instance is destroyed.
+        - Clean up resources.
+    - These subsystems can be accessed through UGameInstance
 
-- Associated with the game instance.
-- Initialization:
-  - Called when the game instance is created.
-  - Set up global state or resources.
-- Deinitialization:
-  - Called when the game instance is destroyed.
-  - Clean up resources.
-- These subsystems can be accessed through UGameInstance
-```cpp
-UGameInstance* GameInstance = ...;
-UMyGameSubsystem* MySubsystem = GameInstance->GetSubsystem<UMyGameSubsystem>();
-```
+    ```cpp
+    UGameInstance* GameInstance = ...;
+    UMyGameSubsystem* MySubsystem = GameInstance->GetSubsystem<UMyGameSubsystem>();
+    ```
 
 2. `UWorldSubsystem`:
-
-- Associated with the world.
-- Initialization:
-  - Called when a new level is loaded.
-  - Set up level-specific resources.
-- Deinitialization:
-  - Called when a level is unloaded.
-  - Clean up level-specific resources.
+    - Associated with the world.
+    - Initialization:
+      - Called when a new level is loaded.
+      - Set up level-specific resources.
+    - Deinitialization:
+      - Called when a level is unloaded.
+      - Clean up level-specific resources.
 
 3. `ULocalPlayerSubsystem`:
+     Tied to local players.
+     Initialization:
+     - Called when a local player joins.
+     - Set up player-specific resources.
+     Deinitialization:
+     - Called when a local player leaves.
+     - Clean up player-specific resources.
+     These subsystems can be accessed through ULocalPlayer:
 
-- Tied to local players.
-- Initialization:
-  - Called when a local player joins.
-  - Set up player-specific resources.
-- Deinitialization:
-  - Called when a local player leaves.
-  - Clean up player-specific resources.
-- These subsystems can be accessed through ULocalPlayer:
-```cpp
-ULocalPlayer* LocalPlayer = ...;
-UMyPlayerSubsystem * MySubsystem = LocalPlayer->GetSubsystem<UMyPlayerSubsystem>();
-```
+    ```cpp
+    LocalPlayer* LocalPlayer = ...;
+    MyPlayerSubsystem* MySubsystem = LocalPlayer->GetSubsystem<UMyPlayerSubsystem>();
+    ```
+
 4. `UEngineSubsystem`:
 
-- Tied to the Engine’s lifecycle.
-- Initialization:
-  - Called during engine startup.
-  - Set up global resources.
-- Deinitialization:
-  - Called during engine shutdown.
-  - Clean up global resources.
-- These subsystems are accessed through GEngine:
-```cpp
-UMyEngineSubsystem* MySubsystem = GEngine->GetEngineSubsystem<UMyEngineSubsystem>();
-```
+    - Tied to the Engine’s lifecycle.
+    - Initialization:
+      - Called during engine startup.
+      - Set up global resources.
+    - Deinitialization:
+      - Called during engine shutdown.
+      - Clean up global resources.
+    - These subsystems are accessed through GEngine:
+
+    ```cpp
+    UMyEngineSubsystem* MySubsystem = GEngine->GetEngineSubsystem<UMyEngineSubsystem>();
+    ```
 
 ## How do subsystems work?
 
@@ -670,35 +671,31 @@ Total actors count 73, Actor ticking count 12
 In this article, we explored the fascinating world of Unreal Engine subsystems—powerful tools that enhance modularity and organization in your game development process. Let’s recap what we’ve learned:
 
 1. What Are Subsystems?
-
-- Subsystems are specialized components that encapsulate specific functionalities within your game.
-- They provide a clean separation of concerns, making your codebase more maintainable and extensible.
+    - Subsystems are specialized components that encapsulate specific functionalities within your game.
+    - They provide a clean separation of concerns, making your codebase more maintainable and extensible.
 
 2. What are benefits of subsystem?
-- Unreal Engine subsystems offer streamlined development, modularity, and consistent interfaces for non-actor objects.
-- Enhance code organization and extensibility, developers should be mindful of the learning curve and potential complexities when deciding to use them.
-- Weighing their benefits against traditional approaches is essential for effective implementation in game development projects.
+    - Unreal Engine subsystems offer streamlined development, modularity, and consistent interfaces for non-actor objects.
+    - Enhance code organization and extensibility, developers should be mindful of the learning curve and potential complexities when deciding to use them.
+    - Weighing their benefits against traditional approaches is essential for effective implementation in game development projects.
 
 3. Lifecycle of Subsystems:
-
-- UGameInstanceSubsystem: Associated with the game instance, it shares its lifetime. Use it for global game state management.
-- UWorldSubsystem: Tied to the world, it initializes with each level and handles level-specific logic (e.g., enemy spawning).
-- ULocalPlayerSubsystem: Associated with local players, it manages player-specific resources and state.
-- UEngineSubsystem: Tied to engine lifetime, it initializes during engine startup and handles global functionalities.
+    - UGameInstanceSubsystem: Associated with the game instance, it shares its lifetime. Use it for global game state management.
+    - UWorldSubsystem: Tied to the world, it initializes with each level and handles level-specific logic (e.g., enemy spawning).
+    - ULocalPlayerSubsystem: Associated with local players, it manages player-specific resources and state.
+    - UEngineSubsystem: Tied to engine lifetime, it initializes during engine startup and handles global functionalities.
 
 4. Creating Subsystems:
-
-- Define your custom subsystem class inheriting from the appropriate base class (e.g., UWorldSubsystem).
-- Implement the Initialize and Deinitialize methods for setup and cleanup.
-- Add custom methods to handle specific functionality (e.g., health management, UI, analytics).
+    - Define your custom subsystem class inheriting from the appropriate base class (e.g., UWorldSubsystem).
+    - Implement the Initialize and Deinitialize methods for setup and cleanup.
+    - Add custom methods to handle specific functionality (e.g., health management, UI, analytics).
 
 5. Examples:
-
-- AnalyticsSubsystem: Tracks game metrics and events.
-- HealthSubsystem: Handles health changes and damage events for game entities.
-- EnemySpawnerSubsystem: Manages enemy spawning and despawning.
-- PlayerUIHandlerSubsystem: Manages UI-related logic for local player (e.g., UI visibility).
-- PerformanceLoggerSubsystem: This example demonstrates a basic usage of UEngineSubsystem for performance logging. It logs information about objects with enabled ticking and saves the log to a file
+    - AnalyticsSubsystem: Tracks game metrics and events.
+    - HealthSubsystem: Handles health changes and damage events for game entities.
+    - EnemySpawnerSubsystem: Manages enemy spawning and despawning.
+    - PlayerUIHandlerSubsystem: Manages UI-related logic for local player (e.g., UI visibility).
+    - PerformanceLoggerSubsystem: This example demonstrates a basic usage of UEngineSubsystem for performance logging. It logs information about objects with enabled ticking and saves the log to a file
 
 Remember that subsystems empower you to create modular, efficient, and well-organized game systems. Whether you’re building a small indie project or a massive AAA title, mastering subsystems will elevate your Unreal Engine experience. But as with any tool, it’s the community of users that truly brings it to life.
 
