@@ -27,7 +27,7 @@ Key parameters to our pipeline
 
 1. One asset per pipeline definition.
 
-    - This helps prevent reference conflicts with other assets, though it allows for references if necessary. A significant advantage is the simplicity of seeing everything upfront. On the other hand, asset nesting can complicate the authoring process, especially when trying to keep the entire pipeline context in mind.
+    - This helps prevent reference conflicts between pipelines (the design outlined naturally flows towards this outcome, while still allowing reference assets if needed). A significant advantage is the simplicity of seeing everything upfront rather then using something like asset nesting, which can complicate the authoring process, especially when trying to keep the entire pipeline context in mind.
 
 2. Data and execution independence.
 
@@ -39,7 +39,7 @@ Key parameters to our pipeline
 
 Benefits:
 - Designer-friendly: Designers can tweak the pipeline without coding.
-- Doesn’t require recompile after modifying data or order (avoid making unity into a loading screen). 
+- Doesn’t require recompile after modifying data or order (avoiding making unity into a loading screen). 
 - Modular
 
 Drawbacks:
@@ -51,9 +51,10 @@ Requirements:
 - CustomEditor
 - (Optional) Custom attribute
 
-## Example
-
-Here's an example on how I used serialized pipeline in my game for defining skill effects and targeting. 
+Examples:
+- Custom build pipeline
+- Asset validation pipeline
+- RPG skill effects pipeline
 ![Skill Template](../assets/images/serializedPipelineUnity/01.png)
 
 ## Steps
@@ -168,7 +169,6 @@ The improved approach contains 2 parts. The first part involves creating a custo
 public partial class AddToArrayAttribute : Attribute
 {
     public string buttonText;
-    
     public AddToArrayAttribute(string buttonText)
     {
         this.buttonText = buttonText;
@@ -179,7 +179,6 @@ public partial class AddToArrayAttribute : Attribute
 public interface ISerializedPropertyAttributeInspector 
 {
     public void Init(UnityEngine.Object owner, SerializedProperty property, FieldInfo fieldInfo);
-    
     public bool DrawProperty();
 }
 
@@ -289,21 +288,22 @@ If you lose data bindings because of a rename, there are 2 ways to restore them.
 ![Unity Warning](../assets/images/serializedPipelineUnity/02.png)
 
 1. Open the problematic .asset files and rename lines with `type: {class: OLD_CLASS_NAME, ns: , asm: ASSEMBLY}` with a new class name, it will rebind itself on refresh (use regex at your own risk)
-2. Or you can revert the rename
-        
-    ```
-    effects:
-        - rid: 2764383452201484288
-        - rid: 2764383452201484290
-        references:
-        version: 2
-        RefIds:
-        - rid: 2764383452201484288
-            type: {class: ReviveSkillEffect, ns: , asm: Assembly-CSharp}
-            data:
-            healPercent: 0
-        - rid: 2764383452201484290
-            type: {class: DamageSkillEffect, ns: , asm: Assembly-CSharp}
-            data:
-            amount: 1
-    ```
+
+```
+effects:
+    - rid: 2764383452201484288
+    - rid: 2764383452201484290
+    references:
+    version: 2
+    RefIds:
+    - rid: 2764383452201484288
+        type: {class: ReviveSkillEffect, ns: , asm: Assembly-CSharp}
+        data:
+        healPercent: 0
+    - rid: 2764383452201484290
+        type: {class: DamageSkillEffect, ns: , asm: Assembly-CSharp}
+        data:
+        amount: 1
+```
+
+2. Reverting the rename also works
