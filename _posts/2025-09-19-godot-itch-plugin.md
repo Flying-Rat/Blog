@@ -78,10 +78,58 @@ The clock is ticking, mission is clear, build a plugin that any Godot developer 
 - Publish it to Godot Asset Library
 - Profit! Eternal glory! (Yes, addon is for free)
 
-## Why GDExtension?
-We chose GDExtension, because it is a Godot-Specific technology and feature that allows native code integration without recompiling the engine. It was released with Godot 4 version, and it is still marked as an experimental feature.
+## How we selected technology
+We started out with only a rough idea of the options for creating plugins in Godot — we’d used Editor Plugins before, and **GDExtension** had been on our bucket list for a while. So we decided to push ourselves: we explored both the easy, editor-focused route and the native GDExtension route to see which fit best.
 
-### Benefits
+### Editor plugin
+A faster way to create an addon for editor with minimal setup, just look at this guide: https://docs.godotengine.org/en/4.4/tutorials/plugins/editor/making_plugins.html
+
+Creating an addon is really easy, you can extend your editor or create a singleton to use and all just with gdscript. Thats the main benefit.
+
+#### Advantages of Editor plugin
+- It's easy to create your own editor plugin - with gdscript which you are already using for gameplay code anyway.
+- It has tun of options - you can create your own data table editor or resource manager or project settings with guide and examples. 
+- Compile time is amazing, especially since there is no compile time - it's ready for publishing. 
+
+#### Setup
+Did you know there is a button for creating editor plugin within Godot editor?
+Just go to Project->Project Settings->Plugins and there it is, in the corner of the menu there is button "Create Plugin". Easy right?
+
+#### Implementation
+We can create a singleton and instance it each time a game is played. 
+Even more we can create a nicely looking menu which we can attach into Project Settings!
+
+![Godot Itch Plugin Guide](../assets/images/godotItchPlugin/godot_itch_plugin_guide.png)
+
+Did you know you add a button literally everywhere? Thats unique about Godot Editor, every part can be modified, every element can be altered. This of course can lead to crashes and functionality issues if you remove essential elements. But you can do it, which is impressive! 
+
+For example, the menu you can add menu you see above into project settings as another panel (next to the Plugins, Autoloads) with this code in your plugin.gdscript. It's amazing how flexible the engine is 😲
+
+```
+@tool
+extends EditorPlugin
+
+func _enter_tree() -> void:
+  _create_itch_project_settings_panel()
+
+func _create_itch_project_settings_panel() -> void:
+  # Load a styled settings scene and use it as the panel
+  var scene = load("res://addons/godot_itch/settings/itch_settings_panel.tscn")
+  if scene:
+    # Create an instance of     
+    var itch_panel = scene.instantiate()
+
+    # Adds a custom panel into Godot Editor -> Project Settings panel
+    add_control_to_container(CustomControlContainer.CONTAINER_PROJECT_SETTING_TAB_RIGHT, itch_panel)
+```
+
+#### We prefer the hard way
+We chose not to use Editor Plugin (gdscript) approach, because we are mainly developers and we are heavily interested in gdextension and its possibilities. We can combine approaches and use both, gdextension and editor plugin in GDScript and what it's our plan.
+
+### Why GDExtension?
+We chose **GDExtension**, because it is a Godot-Specific technology and feature that allows native code integration without recompiling the engine. It was released with Godot 4 version, and it is still marked as an experimental feature.
+
+#### Benefits
 
 - No need to compile Godot Engine itself
 - Gives you access to most of the API available to GDScript or C#
@@ -91,7 +139,7 @@ We chose GDExtension, because it is a Godot-Specific technology and feature that
 
 We used C++ for this project and following the official GDExtension setup guide in [Godot documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_cpp_example.html#). We can briefly go over the setup.
 
-### Project Setup
+#### Project Setup
 
 You need these tools:
 - Godot 4 executable
@@ -107,7 +155,7 @@ Create these folders for your **GDExtension**:
 
 In the demo folder, create a new Godot project and set up a basic scene. The godot-cpp folder is a Git submodule. The src folder holds the code where the main magic happens.
 
-### Integrating the **itch.io** API
+#### Integrating the **itch.io** API
 We originally targeted the **download key verification** endpoint. But **OAuth** tokens available to the game do not have the required scope to call download key endpoints. Those endpoints require a server-side **API key**. Because of that, the extension currently focuses on **OAuth**-authenticated endpoints, starting with the **user identity endpoint**: `GET /me`.
 
 Check the Serverside API reference here: [Serverside API reference - itch.io](https://itch.io/docs/api/serverside). 
@@ -171,48 +219,6 @@ See? Nothing special. Notes:
 - The example scene demonstrating this flow is addons/godot_itch/example/example_get_me.gd.
 - You can explore the full sample project here: https://github.com/Flying-Rat/GodotItch/tree/main/Samples/GodotItchExtension
 
-## **Editor plugin**
-A faster way to create an addon for editor with minimal setup, just look at this guide: https://docs.godotengine.org/en/4.4/tutorials/plugins/editor/making_plugins.html
-
-Creating an addon is really easy, you can extend your editor or create a singleton to use and all just with gdscript. Thats the main benefit.
-
-### Advantages of Editor plugin
-- It's easy to create your own editor plugin - with gdscript which you are already using for gameplay code anyway.
-- It has tun of options - you can create your own data table editor or resource manager or project settings with guide and examples. 
-- Compile time is amazing, especially since there is no compile time - it's ready for publishing. 
-
-### Setup
-Did you know there is a button for creating editor plugin within Godot editor?
-Just go to Project->Project Settings->Plugins and there it is, in the corner of the menu there is button "Create Plugin". Easy right?
-
-### Implementation
-We can create a singleton and instance it each time a game is played. 
-Even more we can create a nicely looking menu which we can attach into Project Settings!
-
-![Godot Itch Plugin Guide](../assets/images/godotItchPlugin/godot_itch_plugin_guide.png)
-
-Did you know you add a button literally everywhere? Thats unique about Godot Editor, every part can be modified, every element can be altered. This of course can lead to crashes and functionality issues if you remove essential elements. But you can do it, which is impressive! 
-
-For example, the menu you can add menu you see above into project settings as another panel (next to the Plugins, Autoloads) with this code in your plugin.gdscript. It's amazing how flexible the engine is 😲
-
-```
-@tool
-extends EditorPlugin
-
-func _enter_tree() -> void:
-    _create_itch_project_settings_panel()
-
-func _create_itch_project_settings_panel() -> void:
-    # Load a styled settings scene and use it as the panel
-    var scene = load("res://addons/godot_itch/settings/itch_settings_panel.tscn")
-    if scene:
-        # Create an instance of     
-        itch_panel = scene.instantiate()
-        add_control_to_container(CustomControlContainer.CONTAINER_PROJECT_SETTING_TAB_RIGHT, itch_panel)
-```
-
-### We prefer the hard way
-We chose not to use Editor Plugin (gdscript) approach, because we are mainly developers and we are heavily interested in gdextension and its possibilities. We can combine approaches and use both, gdextension and editor plugin in GDScript and what it's our plan.
 
 ## Development Journey
 ⏰ Tick tock! Just like kings in medieval times, we had to divide and conquer to achieve our goal.
