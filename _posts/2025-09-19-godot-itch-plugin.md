@@ -81,7 +81,7 @@ Did you know you add a button literally everywhere? Thats unique about Godot Edi
 
 For example, the menu you can add menu you see above into project settings as another panel (next to the Plugins, Autoloads) with this code in your plugin.gdscript. It's amazing how flexible the engine is 😲
 
-```
+```python
 @tool
 extends EditorPlugin
 
@@ -158,7 +158,7 @@ How to call it (typical usage)
 3) Call Itch.get_me() and handle the signals.
 
 Example (GDScript):
-```
+```python
 # ...existing code...
 # Ensure this runs inside a node in your scene:
 Itch.initialize_with_scene(self)
@@ -284,7 +284,7 @@ Did I mention we pay attention to code architecture? Since we started with the i
 You probably get the idea - each subsystem is responsible for a specific part of the platform’s functionality. The User subsystem provides information about the user, and Games provides information about the game itself. There is templated class with a lifetime management functionality. Yes, I like it a lot 😁
 
 <div style="text-align:center">
-  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3R2bnZsaGc3YnBud2MybTRnMXA3OW5yemRjODNxMmpwcXd4cmdsNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qo3qovmbqaKT6/giphy.gif" alt="Giphy" />
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjZvNWJycG84YjJzdHpmeW41Nm91bHRmdXdidTJmZmExdXVuNm1nYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11LK0CKzYtkaic/giphy.gif" alt="Giphy" />
 </div>
 
 Guess what, we only need two of them for now!💣😥 I don’t consider this time wasted; it was educational, and we’ll be reusing it, so its fine.
@@ -296,7 +296,8 @@ There is a use case for our plugin. It’s not exactly what we originally intend
 ## Publish to Godot Asset Library
 From the start, our plan was to share this with the community, that's the original goal. I already mentioned we published the first version early, so early we didn't know what fatal issue there is, but we didn't talk much about the process.
 
-Publishing on Godot Asset Library was surprisingly straightforward; you just create an account and hit Submit Asset. Before hitting publish, there’s a handy checklist to follow: https://docs.godotengine.org/en/latest/community/asset_library/submitting_to_assetlib.html
+Publishing on Godot Asset Library was surprisingly straightforward; you just create an account and hit Submit Asset. Before hitting publish, there’s a handy checklist to follow: [Submitting to the Asset Library
+](https://docs.godotengine.org/en/latest/community/asset_library/submitting_to_assetlib.html)
 
 Here are a few highlights:
 
