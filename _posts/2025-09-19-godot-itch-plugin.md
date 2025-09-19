@@ -1,7 +1,9 @@
 ---
 title: "Godot Itch Plugin"
 date: 2025-09-19T10:00:00+02:00
-authors: Jan Mesarč, Jakub Hubáček
+authors:
+  - Jan Mesarč
+  - Jakub Hubáček
 categories:
   - godot
   - tools
@@ -12,32 +14,6 @@ tags:
   - plugin
 toc: true
 ---
-
-
-Introduction
-Problem Statement
-Research
-Proposal
-Why GDExtension?
-Benefits
-Project Setup
-Integrating the itch.io API
-Editor plugin
-Advantages of Editor plugin
-Setup
-Implementation
-We prefer the hard way
-Development Journey
-Let's prototype!
-Happy Beginnings
-Just a flesh wound
-No time for surrender
-Imperfections are fine
-Publish to Godot Asset Library
-Future roadmap
-Conclusion
-Feedback
-Links
 
 ## Introduction
 What is this about? Well, we are two friends and colleagues Jan and Jakub and we were lucky. We just successfully finished one project and what now? The new project will start soon, and we need to fill a short period of time between. We are big fans of Godot Engine and we suggest using this time to do something interesting for us, something new what we can learn, and it can be helpful for Godot community.
@@ -54,7 +30,7 @@ Alright, challenge accepted. 24 hours is not too much time, so we are thinking a
 ## Problem Statement
 Game development is very strictly tied to specific stores when it comes to game publishing, there is Steam, Epic, GoG and for small indie developers there is Itch. It's common practice to use features from platform store - unlock achievements, use leaderboards, verify game purchase. 
 
-For Steam there is a Godot addon called Godot Steam, but for itch.io there isn't any now. This is our opportunity to create an addon which brings more features to the community, a community for which itch.io is a major publishing platform. You may object - Godot games are mostly small and free- and would be right, but that's fine by us.
+For Steam there is a Godot addon called [Godot Steam](https://godotsteam.com/), but for [itch.io](https://itch.io/) there isn't any now. This is our opportunity to create an addon which brings more features to the community, a community for which itch.io is a major publishing platform. You may object - Godot games are mostly small and free- and would be right, but that's fine by us.
 
 Our goal is to create a developer-friendly **Godot** addon which can easily provide **itch.io** API features. Our top one priority feature is **purchasing verification**, a simple way for developers to verify player has bought the game. As **itch.io** API slowly grows, new functions will be added, we can be there to support them as well.
 
