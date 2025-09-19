@@ -55,7 +55,7 @@ The clock is ticking, mission is clear, build a plugin that any Godot developer 
 - Profit! Eternal glory! (Yes, addon is for free)
 
 ## How we selected technology
-We started out with only a rough idea of the options for creating plugins in Godot — we’d used Editor Plugins before, and **GDExtension** had been on our bucket list for a while. So we decided to push ourselves: we explored both the easy, editor-focused route and the native GDExtension route to see which fit best.
+We started out with only a rough idea of the options for creating plugins in Godot. We’d used Editor Plugins before, and **GDExtension** had been on our bucket list for a while. So we decided to push ourselves: we explored both the easy, editor-focused route and the native GDExtension route to see which fit best.
 
 ### Editor plugin
 A faster way to create an addon for editor with minimal setup, just look at this guide: https://docs.godotengine.org/en/4.4/tutorials/plugins/editor/making_plugins.html
@@ -204,7 +204,7 @@ See? Nothing special. Notes:
 
 ### Let's prototype! 
 - The developer saves the API key and game ID into the project settings.  
-- The player only sees a download key input field—and once entered, they’re verified!  
+- The player only sees a download key input field and once entered, they’re verified!  
 
 🎉 I’m happy to announce that within just 24 hours we built a working prototype, exactly as we set out to do! 🎉
 
@@ -228,21 +228,23 @@ Subsystems for various areas (Users, Games, Purchases) make sense and its what w
 
 Also did you know you can create native documentation for GDExtension? So you can use it same way as you native documentation within editor, how cool is that. 
 
-Nobody can stop us—we know what we’re doing, and nothing could possibly go wrong. Right? …Right?! Well.
+Nobody can stop us, we know what we’re doing, and nothing could possibly go wrong. Right? …Right?! Well.
 
 ### Just a flesh wound
-Remember when I mentioned we were using the game ID and API key for purchase-key verification? Our idea was simple: put the API key into project settings and ship it with the game. It worked… but it was a terrible idea — completely insecure and, honestly, probably against itch.io’s rules.
+Remember when I mentioned we were using the game ID and API key for purchase-key verification? Our idea was simple: put the API key into project settings and ship it with the game. It worked… but it was a terrible idea, completely insecure and, honestly, probably against itch.io’s rules.
+
+Also we would like to thank to **isivisi** for [pointing out](https://github.com/Flying-Rat/GodotItch/issues/1), we are breaking out itch.io terms and conditions, in our early release.
 
 ![Godot Itch Plugin API Key](../assets/images/godotItchPlugin/godot_itch_api_key.png)
 
-Why is this a bad idea? The API key itch.io gives you is unlimited. As a developer, you’d paste it into the game and ship it — but then every player could grab your unlimited API key (all they’d need is your username, which is easy to find).
+Why is this a bad idea? The API key itch.io gives you is unlimited. As a developer, you’d paste it into the game and ship it, but then every player could grab your unlimited API key (all they’d need is your username, which is easy to find).
 
-How bad could it be? Really bad. With an unlimited API key, an attacker could delete content from your itch.io account — but that’s not even the worst part. Imagine someone downloading your build, sneaking in a tiny Trojan DLC, and uploading it to your itch.io. Definitely not what we signed up for!
+How bad could it be? Really bad. With an unlimited API key, an attacker could delete content from your itch.io account, but that’s not even the worst part. Imagine someone downloading your build, sneaking in a tiny Trojan DLC, and uploading it to your itch.io. Definitely not what we signed up for!
 
-So, what now — call it even and forget about it?
+So, what now, call it even and forget about it?
 
 ### No time for surrender
-It’s clear we **cannot use the API key as we originally intended**. We even considered adding password protection for the API key, but we dismissed that option — it’s critical not to share this key. It’s just too risky.
+It’s clear we **cannot use the API key as we originally intended**. We even considered adding password protection for the API key, but we dismissed that option, it’s critical not to share this key. It’s just too risky.
 
 Luckily, we discovered another option: OAuth! OAuth can usually grant you a token that’s valid for a limited time. Have you ever logged into a shop using your Google, Facebook, or Apple account? If so, you already have an idea of how the OAuth process works.
 
@@ -260,7 +262,7 @@ OAuth token. For itch.io it is not JWT token, but it is more like API Key, but w
 
 ### Imperfections are fine
 
-The reality of limited scopes hits hard — this block 90% of the features we planned to support. 
+The reality of limited scopes hits hard, this block 90% of the features we planned to support. 
 Did I mention we pay attention to code architecture? Since we started with the idea of having different subsystems.
 
 ```
@@ -287,9 +289,7 @@ You probably get the idea - each subsystem is responsible for a specific part of
 
 Guess what, we only need two of them for now!💣😥 I don’t consider this time wasted; it was educational, and we’ll be reusing it, so its fine.
 
-
-
-Meanwhile, we did our best — we implemented the OAuth verification process, which gives us a limited API key. With this key, we can still request basic user information, like username, display name, and user cover image.
+Meanwhile, we did our best, we implemented the OAuth verification process, which gives us a limited API key. With this key, we can still request basic user information, like username, display name, and user cover image.
 
 There is a use case for our plugin. It’s not exactly what we originally intended, but it’s not useless either.
 
@@ -330,12 +330,12 @@ Since we now know how to extend editor functionality, it's easy to imagine a who
 We made something that can actually help developers, even if it’s just in the way we first imagined.
 We pushed ourselves with tight deadlines, dove into new territory, and managed to come out with only a few small bruises.
 Along the way, we finally got to explore Editor Plugins and GDExtensions, which had been on our bucket list for ages.
-Most importantly, we built this for the Godot community — a community of passionate game devs we love being part of.
+Most importantly, we built this for the Godot community, a community of passionate game devs we love being part of.
 
 ## Feedback
-Do you have questions, feedback, or ideas for what this could become next? Drop us a comment, share your thoughts, or just let us know if it’s been useful — your input means a lot and helps us figure out what to pay attention to.
+Do you have questions, feedback, or ideas for what this could become next? Drop us a comment, share your thoughts, or just let us know if it’s been useful, your input means a lot and helps us figure out what to pay attention to.
 
 ## Links
-Asset Library: [Godot Itch - Godot Asset Library](https://godotengine.org/asset-library/asset/4302)
-Github repository: [GitHub - Flying-Rat/GodotItch: A Godot plugin for itch.io](https://github.com/Flying-Rat/GodotItch)
-Github issues: [Flying-Rat/GodotItch](https://github.com/Flying-Rat/GodotItch/issues)
+- Asset Library: [Godot Itch - Godot Asset Library](https://godotengine.org/asset-library/asset/4302)
+- GitHub repository: [GitHub - Flying-Rat/GodotItch: A Godot plugin for itch.io](https://github.com/Flying-Rat/GodotItch)
+- GitHub issues: [Flying-Rat/GodotItch](https://github.com/Flying-Rat/GodotItch/issues)
