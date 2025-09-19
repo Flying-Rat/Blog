@@ -42,18 +42,21 @@ Links
 ## Introduction
 What is this about? Well, we are two friends and colleagues Jan and Jakub and we were lucky. We just successfully finished one project and what now? The new project will start soon, and we need to fill a short period of time between. We are big fans of Godot Engine and we suggest using this time to do something interesting for us, something new what we can learn, and it can be helpful for Godot community.
 
+<div style="text-align:center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Godot_logo.svg" alt="Godot Logo" style="width:50%;max-width:50%;height:auto;" />
+</div>
 
 
 We set up a meeting with our CTO and presented our ideas. Can we take a week? What about dialog system? No? Then we can try optimization toolkit, handy tools for checking assets or possibly issue in project and performance. Maybe we can create plugin? Martin our CTO smiled and said that's sounds good. You have 24 hours to show off. 
 
-Alright, challenge accepted. 24 hours is not too much time, so we are thinking about our ideas and suggestions. We picked creating plugin for Itch.io. Why? We wanted to start with something small. Itch API is minimal, and we know we must dig up path through the plugin creation. Let's look on problem what we wanted to resolve. Tick tack
+Alright, challenge accepted. 24 hours is not too much time, so we are thinking about our ideas and suggestions. We picked creating plugin for **Itch.io**. Why? We wanted to start with something small. **Itch** API is minimal, and we know we must dig up path through the plugin creation. Let's look on problem what we wanted to resolve. Tick tack
 
 ## Problem Statement
 Game development is very strictly tied to specific stores when it comes to game publishing, there is Steam, Epic, GoG and for small indie developers there is Itch. It's common practice to use features from platform store - unlock achievements, use leaderboards, verify game purchase. 
 
 For Steam there is a Godot addon called Godot Steam, but for itch.io there isn't any now. This is our opportunity to create an addon which brings more features to the community, a community for which itch.io is a major publishing platform. You may object - Godot games are mostly small and free- and would be right, but that's fine by us.
 
-Our goal is to create a developer-friendly Godot addon which can easily provide itch.io API features. Our top one priority feature is purchasing verification, a simple way for developers to verify player has bought the game. As itch.io API slowly grows, new functions will be added, we can be there to support them as well.
+Our goal is to create a developer-friendly **Godot** addon which can easily provide **itch.io** API features. Our top one priority feature is **purchasing verification**, a simple way for developers to verify player has bought the game. As **itch.io** API slowly grows, new functions will be added, we can be there to support them as well.
 
 ## Research
 It's a little farfetched to call it research, just imagine us reading through the Godot addon documentation and itch.io API documentation, finding out what is possible now and how can we use it, what I want to pinpoint here is:
@@ -64,7 +67,7 @@ It's a little farfetched to call it research, just imagine us reading through th
 - it's possible to use OAuth to verify player, but that's sounds too intrusive
 - itch.io provides his own launcher, but since it's not widely used, we are not targeting this use case
 
-What we choose to support is purchase verification by download key - a unique URL sent to each buyer after purchase. It’s simple, secure enough, and easy to implement. Tick tack.
+What we choose to support is **purchase verification** by **download key** - a unique URL sent to each buyer after purchase. It’s simple, secure enough, and easy to implement. Tick tack.
 
 ## Proposal
 The clock is ticking, mission is clear, build a plugin that any Godot developer can simply hook into their project and use right away.
@@ -104,12 +107,12 @@ Create these folders for your **GDExtension**:
 
 In the demo folder, create a new Godot project and set up a basic scene. The godot-cpp folder is a Git submodule. The src folder holds the code where the main magic happens.
 
-### Integrating the itch.io API
-We originally targeted the download key verification endpoint. But OAuth tokens available to the game do not have the required scope to call download key endpoints. Those endpoints require a server-side API key. Because of that, the extension currently focuses on OAuth-authenticated endpoints, starting with the user identity endpoint: `GET /me`.
+### Integrating the **itch.io** API
+We originally targeted the **download key verification** endpoint. But **OAuth** tokens available to the game do not have the required scope to call download key endpoints. Those endpoints require a server-side **API key**. Because of that, the extension currently focuses on **OAuth**-authenticated endpoints, starting with the **user identity endpoint**: `GET /me`.
 
 Check the Serverside API reference here: [Serverside API reference - itch.io](https://itch.io/docs/api/serverside). 
 
-Our implementation of GDExtension called GodotItch contains the C++ code for the Godot Itch.io extension.
+Our implementation of **GDExtension** called **GodotItch** contains the C++ code for the **Godot Itch** extension.
 
 - `godotitch.h` / `godotitch.cpp`: Main class that talks to the Itch.io API (HTTP requests, signals, helper methods).
 - `register_types.h` / `register_types.cpp`: Registers the extension’s classes with Godot.
@@ -168,7 +171,7 @@ See? Nothing special. Notes:
 - The example scene demonstrating this flow is addons/godot_itch/example/example_get_me.gd.
 - You can explore the full sample project here: https://github.com/Flying-Rat/GodotItch/tree/main/Samples/GodotItchExtension
 
-## Editor plugin
+## **Editor plugin**
 A faster way to create an addon for editor with minimal setup, just look at this guide: https://docs.godotengine.org/en/4.4/tutorials/plugins/editor/making_plugins.html
 
 Creating an addon is really easy, you can extend your editor or create a singleton to use and all just with gdscript. Thats the main benefit.
@@ -294,11 +297,15 @@ Did I mention we pay attention to code architecture? Since we started with the i
     - `user_subsystem.h`
 ```
 
-You probably get the idea - each subsystem is responsible for a specific part of the platform’s functionality. The User subsystem provides information about the user, and Games provides information about the game itself.
+You probably get the idea - each subsystem is responsible for a specific part of the platform’s functionality. The User subsystem provides information about the user, and Games provides information about the game itself. There is templated class with a lifetime management functionality. Yes, I like it a lot 😁
 
-Guess what, we only need two of them for now! 😁 I don’t consider this time wasted; it was educational, and we’ll be reusing it, so its fine.
+<div style="text-align:center">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3R2bnZsaGc3YnBud2MybTRnMXA3OW5yemRjODNxMmpwcXd4cmdsNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qo3qovmbqaKT6/giphy.gif" alt="Giphy" />
+</div>
 
-![Giphy](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3R2bnZsaGc3YnBud2MybTRnMXA3OW5yemRjODNxMmpwcXd4cmdsNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qo3qovmbqaKT6/giphy.gif)
+Guess what, we only need two of them for now!💣😥 I don’t consider this time wasted; it was educational, and we’ll be reusing it, so its fine.
+
+
 
 Meanwhile, we did our best — we implemented the OAuth verification process, which gives us a limited API key. With this key, we can still request basic user information, like username, display name, and user cover image.
 
@@ -319,9 +326,9 @@ Here are a few highlights:
 
 The submission process is smooth, so there is nothing to stress about.
 
-And the best part: our plugin was accepted! 🚀 It took us 3 days, which is common time according to the community.
+And the best part: **our plugin was accepted! 🚀** It took us 3 days, which is common time according to the community.
 
-You can try it right now, just open your Godot editor and search for Godot Itch!
+You can try it right now, just open your **Godot** editor and search for **Godot Itch**!
 
 ![Godot Editor AssetLib Preview](../assets/images/godotItchPlugin/godot_itch_asset_lib.png)
 
