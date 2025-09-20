@@ -334,9 +334,9 @@ Along the way, we finally got to explore Editor Plugins and GDExtensions, which 
 Most importantly, we built this for the Godot community, a community of passionate game devs we love being part of.
 
 ## Feedback
-Do you have questions, feedback, or ideas for what this could become next? Drop us a comment, share your thoughts, or just let us know if it’s been useful, your input means a lot and helps us figure out what to pay attention to.
+Do you have questions, feedback, or ideas for what this could become next? If you found this useful or have ideas on what we should improve or focus on, please let us know through our [Godot Itch Issues](https://github.com/Flying-Rat/GodotItch/issues)!  
 
 ## Links
-- Asset Library: [Godot Itch - Godot Asset Library](https://godotengine.org/asset-library/asset/4302)
-- GitHub repository: [GitHub - Flying-Rat/GodotItch: A Godot plugin for itch.io](https://github.com/Flying-Rat/GodotItch)
-- GitHub issues: [Flying-Rat/GodotItch](https://github.com/Flying-Rat/GodotItch/issues)
+- Asset Library: [Godot Itch in AssetLib](https://godotengine.org/asset-library/asset/4302)
+- GitHub repository: [Godot Itch on GitHub ](https://github.com/Flying-Rat/GodotItch)
+- GitHub issues: [Godot Itch Issues](https://github.com/Flying-Rat/GodotItch/issues)
