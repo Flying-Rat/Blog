@@ -10,3 +10,19 @@ $link-color: $fr-primary !default;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
+
+// Desktop improvements
+@media (min-width: 768px) {
+
+  // Smaller font for desktop
+  html {
+    font-size: 20px;
+  }
+  
+  // Slightly wider content area (close to original)
+  .page {
+    max-width: none;
+    width: calc(100% - 160px);
+    padding-right: 160px;
+  }
+}
