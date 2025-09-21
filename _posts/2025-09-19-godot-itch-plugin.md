@@ -81,7 +81,7 @@ Did you know you add a button literally everywhere? Thats unique about Godot Edi
 
 For example, the menu you can add menu you see above into project settings as another panel (next to the Plugins, Autoloads) with this code in your plugin.gdscript. It's amazing how flexible the engine is 😲
 
-```python
+```gdscript
 @tool
 extends EditorPlugin
 
@@ -158,7 +158,7 @@ How to call it (typical usage)
 3) Call Itch.get_me() and handle the signals.
 
 Example (GDScript):
-```python
+```gdscript
 # ...existing code...
 # Ensure this runs inside a node in your scene:
 Itch.initialize_with_scene(self)
