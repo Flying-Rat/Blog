@@ -11,6 +11,9 @@ $link-color: $fr-primary !default;
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
 
+// Shift the central page to the left on desktop
+$shift-main-left: #{$right-sidebar-width-narrow};
+
 // Desktop improvements
 @media (min-width: 768px) {
 
@@ -18,11 +21,23 @@ $link-color: $fr-primary !default;
   html {
     font-size: 20px;
   }
-  
-  // Slightly wider content area (close to original)
-  .page {
+
+  // Slightly wider content area
+  .page,
+  .page__related,
+  .breadcrumbs ol {
     max-width: none;
-    width: calc(100% - 160px);
-    padding-right: 160px;
+    width: calc(100% - #{$shift-main-left});
+    padding-right: $shift-main-left;
+  }
+
+  // Also move slightly the sidebar and related elements to the left
+  .archive,
+  .sidebar,
+  .sidebar.sticky {
+    -webkit-transform: translateX(#{$shift-main-left});
+    transform: translateX(#{$shift-main-left});
+    transition: transform 0.18s ease;
+    will-change: transform;
   }
 }
