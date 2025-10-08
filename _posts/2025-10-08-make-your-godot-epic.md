@@ -74,6 +74,7 @@ This is how we built it, step by step:
 ## What works today
 
 Integration process:
+
 | Subsystem | Status | Description |
 |-----------|--------|-------------|
 | [Platform](Platform) | ✅ Core | Foundation for all EOS operations |
@@ -87,6 +88,7 @@ Integration process:
 ## What we plan next
 
 What next? Here’s what we have in mind:
+
 | Subsystem | Status | Description |
 |-----------|--------|-------------|
 | Presence | 🔄 Planned | User online status |
@@ -94,12 +96,17 @@ What next? Here’s what we have in mind:
 | Metrics | 🔄 Planned | Telemetry and analytics |
 | TitleStorage | 🔄 Planned | Cloud-based title storage |
 | UI | 🔄 Planned | Epic Games overlay UI |
+
+## Ideas for the future
+
+What else could be added? Here are some ideas:
+
+| Subsystem | Status | Description |
+|-----------|--------|-------------|
 | AntiCheat | 📅 Future | Anti-cheat systems |
 | Sessions | 📅 Future | Multiplayer session management |
 | Lobby | 📅 Future | Lobby matchmaking |
 | Invites | 📅 Future | Custom invitation system |
 | Mods | 📅 Future | Modding support |
-
-## Ideas for the future
 
 ## Summary
