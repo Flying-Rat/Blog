@@ -15,6 +15,7 @@ tags:
   - conference
   - community
   - godotfest
+excerpt: "Highlights and insights from GodotFest Munich 2025! Our team shares their key takeaways and favorite presentations from the conference dedicated to the Godot Engine."
 toc: true
 ---
 
