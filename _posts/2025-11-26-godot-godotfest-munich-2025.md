@@ -38,8 +38,6 @@ What we see most of the time is Godot in the hands of indie devs creating amazin
 
 **Favorite Presentation:**
 
-Building Starfinder: Professional Godot at Scale
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-RhTvgFD80g?si=RNb896BWeOeBdYYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
@@ -52,8 +50,6 @@ Building Starfinder: Professional Godot at Scale
 
 **Favorite Presentation:**
 
-René Habermann - Bippinbits: Don't ship the wrong game!
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ki-ItVuRkxM?si=RNb896BWeOeBdYYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
@@ -65,8 +61,6 @@ René Habermann - Bippinbits: Don't ship the wrong game!
 The best talks are the ones where the presentation itself is in the Godot Engine 😉 RAWRLAB Games' presentation about Switch publishing (not recorded) and Perfoon's presentation about the usage of 2D SDF generated in runtime by Godot were the highlights for me.
 
 **Favorite Presentation:**
-
-Jaanus Jaggo (Perfoon): Raytracing is simple for 2D games!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/j0X3LJsa1CM?si=RNb896BWeOeBdYYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
