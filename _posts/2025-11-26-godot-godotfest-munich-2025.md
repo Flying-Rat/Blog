@@ -20,7 +20,7 @@ toc: true
 
 ## Overview
 
-You fancy curry wurst, beer and Godot? There was a perfect opportunity to bring all these nice things together last week as there was [GodotFest Munich](https://godotfest.com/) - a conference dedicated to Godot Engine filled with open-source enthusiasts and game developers 🎮
+You fancy curry wurst, beer and Godot? There was a perfect opportunity to bring all these nice things together last week as there was [GodotFest 2025](https://godotfest.com/) - a conference dedicated to Godot Engine filled with open-source enthusiasts and game developers 🎮
 
 We survived the journey, and we want to share a few interesting things we thought were worth sharing. No pretzels to share anyway! 🥨
 
@@ -46,7 +46,7 @@ What we see most of the time is Godot in the hands of indie devs creating amazin
 
 **One Key Insight:**
 
-[GodotFest 2025](https://godotfest.com/) was an amazing experience for me. It was not only a chance to reconnect with old friends but also to make many new ones. We all share a love for Godot, and that sense of community was everywhere. The conference was professional, the venue was a perfect fit, and the talks were outstanding. It's hard to pick just one highlight, but if I must, my choice is René Habermann's talk: Don't Ship the Wrong Game! It really stood out to me because it reminded me how crucial it is to stay aligned with the core vision of a project and avoid feature creep or misdirection. This insight will definitely influence how I approach future game development decisions.
+GodotFest 2025 was an amazing experience for me. It was not only a chance to reconnect with old friends but also to make many new ones. We all share a love for Godot, and that sense of community was everywhere. The conference was professional, the venue was a perfect fit, and the talks were outstanding. It's hard to pick just one highlight, but if I must, my choice is René Habermann's talk: Don't Ship the Wrong Game! It really stood out to me because it reminded me how crucial it is to stay aligned with the core vision of a project and avoid feature creep or misdirection. This insight will definitely influence how I approach future game development decisions.
 
 **Favorite Presentation:**
 
@@ -66,9 +66,9 @@ The best talks are the ones where the presentation itself is in the Godot Engine
 
 ## Conclusion
 
-This year, [GodotFest Munich 2025](https://godotfest.com/) took the place of GodotCon, though this was a one-time exception. Going forward, GodotFest will establish Munich as its permanent home, while GodotCon will continue to rotate among different European cities.
+This year, [GodotFest 2025](https://godotfest.com/) took the place of GodotCon, though this was a one-time exception. Going forward, GodotFest will establish Munich as its permanent home, while GodotCon will continue to rotate among different European cities.
 
 All videos from GodotFest are available in the playlist [here](https://www.youtube.com/playlist?list=PLCCIq-5mpJSIiW4cgb2P5OBwF5JM9P47p).
 
-Don't forget there are user groups around Europe and you can join them! Find one near you: [Godot User Groups](https://godotengine.org/community/user-groups/).
+Don't forget there are [Godot User Groups](https://godotengine.org/community/user-groups/) around the world and you can join them!
 
