@@ -70,3 +70,11 @@ Jaanus Jaggo (Perfoon): Raytracing is simple for 2D games!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/j0X3LJsa1CM?si=RNb896BWeOeBdYYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+## Conclusion
+
+This year, [GodotFest Munich 2025](https://godotfest.com/) took the place of GodotCon, though this was a one-time exception. Going forward, GodotFest will establish Munich as its permanent home, while GodotCon will continue to rotate among different European cities.
+
+All videos from GodotFest are available in the playlist [here](https://www.youtube.com/playlist?list=PLCCIq-5mpJSIiW4cgb2P5OBwF5JM9P47p).
+
+Don't forget there are user groups around Europe and you can join them! Find one near you: [Godot User Groups](https://godotengine.org/community/user-groups/).
+
